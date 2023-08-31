@@ -1,0 +1,22 @@
+.navbar {
+  height: 60px;
+  background: #000;
+  padding: 0px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  .links {
+    display: flex;
+    align-items: center;
+
+    a {
+      text-decoration: none;
+    }
+    a,
+    .cart {
+      font-size: 25px;
+      margin-left: 25px;
+      color: #fff;
+    }
+  }
+}
