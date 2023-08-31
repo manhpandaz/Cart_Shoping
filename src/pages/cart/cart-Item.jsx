@@ -4,7 +4,8 @@ import { Minus, Plus } from "phosphor-react";
 import { ShopContext } from "../../context/shop-context";
 export const CartItem = (props) => {
   const { id, productName, price, productImage } = props.data;
-  const { addToCart, removeFromCart, cartItems } = useContext(ShopContext);
+  const { addToCart, removeFromCart, updateItemCart, cartItems } =
+    useContext(ShopContext);
 
   const cartItemAmount = cartItems[id];
   return (
@@ -20,7 +21,10 @@ export const CartItem = (props) => {
         <button onClick={() => addToCart(id)}>
           <Plus size={32} />
         </button>
-        <input type="number" value={cartItemAmount} />
+        <input
+          value={cartItemAmount}
+          onChange={(e) => updateItemCart(Number(e.target.value), id)}
+        />
         <button onClick={() => removeFromCart(id)}>
           <Minus size={32} />
         </button>
