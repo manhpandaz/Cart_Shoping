@@ -10,7 +10,7 @@ import "./cart.scss";
 
 export const Cart = () => {
   const { cartItems, getTotalAmount } = useContext(ShopContext);
-
+  const totalAmount = getTotalAmount();
   const navigate = useNavigate();
   return (
     <div className="cart">
@@ -25,9 +25,9 @@ export const Cart = () => {
           return null;
         })}
       </div>
-      {cartItems > 0 ? (
+      {totalAmount ? (
         <div className="checkout">
-          <p>SubTotal: $ {getTotalAmount(cartItems)}</p>
+          <p>SubTotal: $ {totalAmount}</p>
           <button onClick={() => navigate("/")} className="continueShoppingBtn">
             Continue Shopping
           </button>
